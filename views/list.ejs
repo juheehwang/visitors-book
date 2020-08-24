@@ -10,27 +10,29 @@
 <body>
 
     <table class="table table-bordered table-hover">
+        
         <tr>
+            <th>ID</th>
             <th>이름</th>
             <th>작성일</th>
             <th>내용</th>
             <th>삭제</th>
+            <th>수정</th>
         </tr>
+        <% data.forEach(function(item, index) {%>
         <tr>
-            <td>제품 이름</td>
-            <td>
-                2020-03-07
-            </td>
-            <td>
-                내용
-            </td>
-            <td>
-                <a href="#" class="btn btn-danger">삭제</a>
-            </td>
+            <td><%= item.ID %></td>
+            <td><%= item.name %></td>
+            <td><%= item.date %></td>
+            <td><%= item.content %></td>
+            <td><a href="/delete/<%=item.ID%>">삭제</a></td>
+            <td><a href="/edit/<%=item.ID%>">수정</a></td>
         </tr>
+        <% }); %>
+      
     </table>
 
-    <a href="./intro" class="btn btn-default">작성하기</a>
+    <a href="./views/intro" class="btn btn-default">작성하기</a>
 
  
 </body>
